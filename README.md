@@ -1,26 +1,61 @@
-# Spark101 · Agent Ops Stack (bosquejo MVP)
+# Spark101 Agent Ops Stack — Bosquejo MVP
 
-Tablero web de **marketing ops agéntico** para dogfood de Spark101 (Camila Velasco).
+Dashboard de marketing-ops (App Router + TypeScript + Tailwind) para demos Spark101.
 
-## Qué ES
-- Bosquejo / MVP visual deployable
-- Módulos: Agentes, Cola GO/ESPERA/KILL, Know-how versionado, Social listening, Conectores
-- Datos de ejemplo Spark101
-- HITL interactivo en cliente (sin backend)
+UI en español AR/LatAm. Datos de ejemplo **solo Spark101**. Sin Lorem/Acme ni marcas ajenas al demo.
 
-## Qué NO ES
-- Runtime multi-agente completo
-- Wiring real HubSpot / Apollo / WhatsApp / OpenRouter
-- HA de producción ni memoria durable
+## Bosquejo vs template futuro
 
-## Template runnable (después)
-Orquestación, persistencia de gates, store versionado de skills/MD, LLM-agnóstico, conectores reales, HA cloud.
+| | **Este repo (bosquejo)** | **Template futuro** |
+| --- | --- | --- |
+| Propósito | Sketch visual demo-ready | Producto / starter reutilizable |
+| Datos | Seed estático en `lib/data.ts` | API / CRM reales |
+| Aprobaciones | Estado React local (GO / ESPERA / KILL) | Persistencia + auditoría |
+| Listening | Stub + slot *Scripts de Camila (próximo)* | Ingesta social real |
+| Conectores | Cards de estado | OAuth / webhooks |
+| Badge | **Bosquejo MVP** | Release / versionado de producto |
 
-## Local
+Usa este proyecto para caminar la UI en reuniones. El template futuro deberia partir de aca, no al reves.
+
+## Stack
+
+- Next.js App Router (TypeScript)
+- Tailwind CSS
+- Sin `src/` — alias `@/*`
+- Componentes Tailwind propios (sin shadcn CLI)
+
+## Rutas
+
+- `/` — Overview + KPIs
+- `/agentes` — Contenido, Nurturing, Campañas, Social listening
+- `/aprobaciones` — Cola interactiva GO / ESPERA / KILL
+- `/know-how` — tono-marca@1.2, playbook-nurturing@0.4, gates-aprobacion@1.0
+- `/listening` — menciones fake + slot Scripts de Camila
+- `/conectores` — HubSpot, Apollo, WhatsApp, OpenRouter LLM
+
+## Correr en local
+
 ```bash
+cd /workspace/spark101-agent-ops
 npm install
 npm run dev
 ```
 
-## Repo
-https://github.com/kmivelasco/spark101-agent-ops
+Abri http://localhost:3000
+
+### Build de produccion
+
+```bash
+npm run build
+npm start
+```
+
+## Notas de demo
+
+- Las decisiones de aprobacion viven en el cliente: refresh = vuelve al seed.
+- Know-how muestra el markdown del documento seleccionado.
+- Visual: slate + acento indigo, UI densa de ops.
+
+## Marca
+
+**Spark101 Agent Ops Stack** · badge **Bosquejo MVP**
