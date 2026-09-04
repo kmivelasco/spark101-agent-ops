@@ -6,9 +6,9 @@ import { initialApprovals, type ApprovalItem, type ApprovalStatus } from "@/lib/
 
 const badge: Record<ApprovalStatus, string> = {
   pendiente: "bg-slate-100 text-slate-700 ring-slate-200",
-  go: "bg-emerald-50 text-emerald-800 ring-emerald-200",
-  espera: "bg-amber-50 text-amber-800 ring-amber-200",
-  kill: "bg-rose-50 text-rose-800 ring-rose-200",
+  GO: "bg-emerald-50 text-emerald-800 ring-emerald-200",
+  ESPERA: "bg-amber-50 text-amber-800 ring-amber-200",
+  KILL: "bg-rose-50 text-rose-800 ring-rose-200",
 };
 
 export default function AprobacionesPage() {
@@ -29,15 +29,15 @@ export default function AprobacionesPage() {
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="font-semibold text-slate-900">{item.title}</h2>
-                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ${badge[item.status]}`}>{item.status.toUpperCase()}</span>
+                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ${badge[item.status]}`}>{item.status}</span>
                 </div>
-                <p className="mt-1 text-xs text-slate-500">{item.agent} · {item.channel}</p>
+                <p className="mt-1 text-xs text-slate-500">{item.agent} · {item.channel} · riesgo {item.risk}</p>
                 <p className="mt-2 text-sm text-slate-600">{item.preview}</p>
               </div>
               <div className="flex gap-2">
-                <button type="button" onClick={() => setStatus(item.id, "go")} className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700">GO</button>
-                <button type="button" onClick={() => setStatus(item.id, "espera")} className="rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600">ESPERA</button>
-                <button type="button" onClick={() => setStatus(item.id, "kill")} className="rounded-md bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-700">KILL</button>
+                <button type="button" onClick={() => setStatus(item.id, "GO")} className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700">GO</button>
+                <button type="button" onClick={() => setStatus(item.id, "ESPERA")} className="rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600">ESPERA</button>
+                <button type="button" onClick={() => setStatus(item.id, "KILL")} className="rounded-md bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-700">KILL</button>
               </div>
             </div>
           </div>
